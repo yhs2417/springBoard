@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SQLMapper">
+
+<insert id="signup" parameterType="memberdto">
+	insert into member values ( #{id}, password(#{pwd}), #{email})
+</insert>
+
+<select id="login" parameterType="memberdto" resultType="String">
+	select id from member where ID=#{id} and pwd=password(#{pwd})
+</select>
+
+<delete id="withdrawal" parameterType="String">
+	delete from member where id=#{id}
+</delete>
+
+<select id="getTotalA" resultType="int">
+	select count(*) from board
+</select>
+
+<select id="boardlist" parameterType="java.util.Map" resultType="boarddto">
+	select * from (select @rownum:=@rownum+1 as num, a.* from  board a, (select @rownum:=0) b ) tt 
+	<![CDATA[where num>=#{startrow} and num<=#{endrow}]]>
+</select>
+
+<insert id="writing" parameterType="boarddto">
+	insert into board(header,content,author,logtime) values (#{header},#{content},#{author},sysdate())
+</insert>
+
+<select id="boardDetail" parameterType="int" resultType="boarddto">
+	select * from board where seq=#{seq}
+</select>
+
+<delete id="deleting" parameterType="int">
+	delete from board where seq=#{seq}
+</delete>
+
+<update id="updating" parameterType="boarddto">
+	update BOARD set header=#{header},content=#{content},logtime=sysdate() where seq=#{seq}
+</update>
+</mapper>
