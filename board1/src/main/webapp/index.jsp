@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <title>Welcome</title>
-
+<meta name='viewport' content="width=device-width,initail-scale=1">	
 <script>
 
 if("${msg}" != "")
@@ -17,7 +17,7 @@ if("${msg}" != "")
 }
 </script>
 
-<frameset rows="12%,*" frameborder="0">
+<frameset rows="90px,*" frameborder="0">
 	<frame name="header" src="/board1/board/header.jsp">
 	<frame name="main" src="/board1/board/boardList.jsp">	
 </frameset>

@@ -49,8 +49,9 @@ public class controller
 		}
 		catch(Exception e)
 		{
-			mav.addObject("msg","이미 가입되어있는 아이디 입니다");
+			mav.addObject("msg","이미 가입되어있는 아이디이거나 기타 오류입니다");
 			System.out.println("----회원가입실패---------");
+			e.printStackTrace();
 		}
 		finally
 		{
@@ -196,6 +197,7 @@ public class controller
 		{
 			mav.addObject("msg","글 작성에 실패하였습니다");
 			System.out.println("----글 작성실패---------");
+			e.printStackTrace();
 		}
 		finally
 		{
@@ -242,12 +244,14 @@ public class controller
 		catch(Exception e)
 		{
 			mav.addObject("msg","글을 수정하지 못하였습니다");
+			System.out.println("글 업데이트 완료");
+			e.printStackTrace();
 		}
 		finally
 		{
 			mav.setViewName("../index.jsp");
 		}
-		System.out.println("글 업데이트 완료");
+		
 		return mav;
 	}
 	
@@ -269,6 +273,7 @@ public class controller
 		{
 			mav.addObject("msg","글 삭제에 실패했습니다");
 			System.out.println("----글 삭제실패---------");
+			e.printStackTrace();
 		}
 		finally
 		{

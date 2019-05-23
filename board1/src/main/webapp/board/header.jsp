@@ -16,7 +16,17 @@
 	{
 		font-family: 'Helvetica Neue', Helvetica, Arial, "맑은 고딕", "Malgun gothic", sans-serif;	
 	}
- 
+    @media (max-width: 767px)
+    {
+	    #ftp1 .nav-item .nav-link {padding-left:1px;}
+	    #menu .nav-item .nav-link {padding-left:5px; padding-right:5px}
+	    #nav1 {padding-left:1px ; padding-right:1px ;}
+    }
+    @media (min-width: 768px)
+    {
+       #ftp1 { padding-left: 20px}
+    }
+ 	
 </style>
 </head>
 <body>
@@ -25,16 +35,16 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	
 <nav class="navbar navbar-light bg-white fixed-top border-bottom border-dark">
-	<div class="container">	
+	<div class="container" id="nav1">	
 	<a class ='navbar-brand' href ='/board1/index.jsp' target="_top">
 	<i class="fas fa-home text-body"></i>
 	</a>
-	<ul class="navbar-nav ml-3 mr-auto">
+	<ul class="navbar-nav ml-3 mr-auto" id="ftp1">
 	<li class="nav-item">
 		<a class="nav-link text-body" href="ftp://hyunnn.kr" target="_blank">FTP</a>
 	</li>
 	</ul>
-	<ul class ='nav nav-pills'>
+	<ul class ='nav nav-pills ml-auto' id="menu">
 		<c:if test="${session_id==null}">
 		<li class="nav-item">
 			<a class="nav-link" href="../member/login.jsp" target="main">로그인</a>
@@ -45,10 +55,7 @@
 		</c:if>
 	
 		<c:if test="${session_id !=null }">
-		<li class="nav-item">
-			<span class="navbar-text">${session_id}님 안녕하세요</span> 
-		</li>
-	 
+
 		<li class="nav-item">
 			<a class="nav-link" href="logout.do" target="_top">로그아웃</a>
 		</li>

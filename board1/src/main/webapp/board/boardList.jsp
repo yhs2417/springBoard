@@ -27,6 +27,7 @@ function writing()
 	{
 		window.self.location.href="writing.jsp";
 	}
+	return false;
 }
 </script>
 <style>
@@ -49,7 +50,11 @@ function writing()
 
 <div class='container pt-3'>
 	<div class="text-right">
-		<a href="" onclick="writing()" >글작성</a> 
+		<c:if test="${session_id !=null }">
+        	<span class="text-muted">${session_id}님 안녕하세요</span> <br>
+        </c:if>
+		
+		<a href="" onclick="return writing()" >글작성</a> 
 	
 	</div>
 

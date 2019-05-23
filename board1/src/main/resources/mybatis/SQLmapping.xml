@@ -36,6 +36,6 @@
 </delete>
 
 <update id="updating" parameterType="boarddto">
-	update BOARD set header=#{header},content=#{content},logtime=sysdate() where seq=#{seq}
+	update board set header=#{header},content=#{content},logtime=sysdate() where seq=#{seq}
 </update>
 </mapper>

@@ -26,6 +26,7 @@ function rewrite()
 	{	
 		window.top.location.href="rewrite.do?seq=${bdto.seq}";	 	
 	}
+	return false;
 }
 function deleting()
 {
@@ -42,6 +43,7 @@ function deleting()
 	{	
 		window.top.location.href="deleting.do?seq=${bdto.seq}";
 	}
+	return false;
 }
 </script>
 
@@ -55,8 +57,8 @@ function deleting()
 <div class='container pt-3'>
 	<div class="text-right">
 	
-	<a href="" onclick="rewrite()">수정</a>
-	<a href="" onclick="deleting()">삭제</a>
+	<a href="" onclick="return rewrite()">수정</a>
+	<a href="" onclick="return deleting()">삭제</a>
 	
 	</div>
 </div>
